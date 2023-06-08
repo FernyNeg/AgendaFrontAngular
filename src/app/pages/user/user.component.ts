@@ -61,7 +61,6 @@ export class UserComponent implements OnInit {
   getContactosService() {
     this.service.getContactos(this.busqueda).subscribe(res => {
       this.busqueda.list = res.list;
-      console.log(res);
     });
   }
 

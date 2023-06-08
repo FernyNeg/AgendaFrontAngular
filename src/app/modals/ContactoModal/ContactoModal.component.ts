@@ -78,7 +78,6 @@ export class ContactoModalComponent implements OnInit {
   //#region Servicios
   setContactoService() {
     this.service.setContactoPorId(this.contacto).subscribe(res => {
-      console.log(res.codRetorno);
       res.codRetorno == CodRetorno.CEROS ?
         this.dialog.close(true) :
         this.alertas.errorAlert(res.mensaje);

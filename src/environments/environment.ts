@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  apiUrl:"https://localhost:8080/agenda/controller/"
+  apiUrlJava: "http://localhost:8080/agenda/controller/",
+  apiUrlCs: "https://localhost:8080/agenda/controller/"
 };
 
 /*

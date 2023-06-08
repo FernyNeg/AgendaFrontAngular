@@ -1,9 +1,10 @@
 import { environment } from "../../environments/environment";
 
-export const UrlConstantes = {
+const apiRuta: string = environment.apiUrlJava;
 
-  ActualizaContactoPorId: environment.apiUrl + 'contacto/actualizaContacto.do',
-  ConsultaContactos: environment.apiUrl + 'contacto/leerContactos.do',
-  ConsultaContactoPorId: environment.apiUrl + 'contacto/leerContactoPorId.do',
-  crearContacto: environment.apiUrl + 'contacto/crearContacto.do',
+export const UrlConstantes = {
+  ActualizaContactoPorId: apiRuta + 'contacto/actualizaContacto.do',
+  ConsultaContactos: apiRuta + 'contacto/leerContactos.do',
+  ConsultaContactoPorId: apiRuta + 'contacto/leerContactoPorId.do',
+  crearContacto: apiRuta + 'contacto/crearContacto.do',
 }
