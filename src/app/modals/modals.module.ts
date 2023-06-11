@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from "@angular/material/dialog";
 import { CommonModule } from '@angular/common';
+import { ContactoModalNgComponent } from './ContactoModalNg/ContactoModalNg.component';
 /* import { HTTP_INTERCEPTORS } from '@angular/common/http'; */
 /* import { JwtInterceptor } from '../../security/helper/jwt.interceptor'; */
 /* import { GlobalHttpInterceptorService } from '../../security/helper/globalhttp.interceptor'; */
@@ -11,7 +12,8 @@ import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
-    ContactoModalComponent
+    ContactoModalComponent,
+    ContactoModalNgComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -21,7 +23,8 @@ import { CommonModule } from '@angular/common';
     MatDialogModule
   ],
   exports: [
-    ContactoModalComponent
+    ContactoModalComponent,
+    ContactoModalNgComponent
   ],
   providers: [
 

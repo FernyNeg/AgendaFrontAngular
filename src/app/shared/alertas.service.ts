@@ -33,13 +33,13 @@ export class AlertasService {
 
   errorServidor() {
     this.toastr.error(
-      '<span class=" tim-icons icon-bell-55"></span> El servidor dejo de responder', "",
+      '<span class=" tim-icons icon-bell-55" [data-notify]="icon"></span> El servidor dejo de responder', "",
       { timeOut: 8000, enableHtml: true, closeButton: true, toastClass: "alert alert-danger alert-with-icon", positionClass: "toast-top-right" }
     );
   }
   errorAlert(encabezado: string) {
     this.toastr.error(
-      '<span class=" tim-icons icon-alert-circle-exc "></span>', `${encabezado}`,
+      '<span class=" tim-icons icon-alert-circle-exc "[data-notify]="icon"></span>', encabezado,
       { timeOut: 8000, enableHtml: true, closeButton: true, toastClass: "alert alert-danger alert-with-icon", positionClass: "toast-top-right" }
     );
   }

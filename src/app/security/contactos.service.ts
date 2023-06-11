@@ -25,4 +25,12 @@ export class ContactosService {
     return this.Conexion.post<Contacto>(UrlConstantes.ActualizaContactoPorId, param);
   }
 
+  revisaCorreo(param: Contacto) {
+    return this.Conexion.post<boolean>(UrlConstantes.revisaCorreo, param);
+  }
+  
+  revisaUsuario(param: Contacto) {
+    return this.Conexion.post<boolean>(UrlConstantes.revisaUsuario, param);
+  }
+
 }

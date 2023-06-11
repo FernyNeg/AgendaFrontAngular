@@ -1,0 +1,148 @@
+<div class='card'>
+  <div class='card-header'>
+    <div class='card-title'>
+      <div class='row'>
+        <h2 class='col-10'>Contacto</h2>
+        <button (click)='CerrarEvent()' class='ml-auto btn btn-danger btn-icon btn-round mr-4'>
+          <i class=' tim-icons icon-simple-remove'></i>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class='card-body'>
+    <form #contactoForm="ngForm">
+      <div class="row">
+        <div class='col-2'>
+          <label class='col-form-label'>Id:</label>
+          <div class='mt-auto mb-auto'>
+            <div class=' form-group'>
+              <input class=' form-control' placeholder='Id' type='text' name='idContacto' #idContacto='ngModel'
+                [(ngModel)]='contacto.idContacto' />
+            </div>
+          </div>
+        </div>
+        <div class='form-group col-sm-5'>
+          <label for='usuario' class='col-form-label'>
+            Usuario:
+          </label>
+          <div class="form-group" [ngClass]='{
+            "input-group-focus" : FocosArr[0][0]===true,
+            "has-danger" : ((FocosArr[0][1] || valor) && usuario.errors) || (contacto.usuario !="" && usuario.errors),
+            "has-success" : !usuario.errors }'>
+            <input type='text' class='form-control' required placeholder='Usuario' name='usuario' #usuario='ngModel'
+              [(ngModel)]='contacto.usuario' (focus)='FocosArr[0][0] = true; FocosArr[0][1] = true' minlength="6"
+              (keyup)="revisaUsuarioEvent($event)">
+          </div>
+          <div class='text-danger' *ngIf='(usuario.dirty || usuario.touched) && (usuario.invalid||usuario.errors)'>
+            <!-- <div *ngIf='usuario.errors.required'> -->
+            Este campo es requerido
+            <!-- </div> -->
+          </div>
+        </div>
+        <div class='form-group col-sm-5'>
+          <label for='correo' class='col-form-label'>
+            Correo:
+          </label>
+          <div class="form-group" [ngClass]='{
+            "input-group-focus" : FocosArr[1][0]===true,
+            "has-danger" : ((FocosArr[1][1] || valor) && correo.errors) || (contacto.correo !="" && correo.errors),
+            "has-success" : !correo.errors }'>
+            <input type='text' class='form-control' required placeholder='Correo' name='correo' #correo='ngModel'
+              [(ngModel)]='contacto.correo' (focus)='FocosArr[1][0] = true; FocosArr[1][1] = true' minlength="5"
+              (keyup)="revisaCorreoEvent($event)">
+          </div>
+          <div class='text-danger' *ngIf='(correo.dirty || correo.touched) && correo.invalid'>
+            <!-- <div *ngIf='correo.errors.required'> -->
+            Este campo es requerido
+            <!-- </div> -->
+          </div>
+        </div>
+        <div class='form-group col-sm-4'>
+          <label for='nombre' class='col-form-label'>
+            Nombre:
+          </label>
+          <div class="form-group" [ngClass]='{
+            "input-group-focus" : FocosArr[2][0]===true,
+            "has-danger" : ((FocosArr[2][1] || valor) && nombre.errors) || (contacto.nombre !="" && nombre.errors),
+            "has-success" : !nombre.errors }'>
+            <input type='text' class='form-control' required placeholder='Nombre' name='nombre' #nombre='ngModel'
+              [(ngModel)]='contacto.nombre' (focus)='FocosArr[2][0] = true; FocosArr[2][1] = true'>
+          </div>
+          <div class='text-danger' *ngIf='(nombre.dirty || nombre.touched) && (nombre.invalid || nombre.errors)'>
+            <!-- <div *ngIf='nombre.errors.required'> -->
+            Este campo es requerido
+            <!-- </div> -->
+          </div>
+        </div>
+        <div class='col-sm-4'>
+          <label class='col-form-label'>1er. Apellido:</label>
+          <div class='mt-auto mb-auto'>
+            <div class=' form-group'>
+              <input class=' form-control' placeholder='1er. Apellido' name='aPaterno' #aPaterno='ngModel' type='text'
+                [(ngModel)]='contacto.aPaterno' />
+            </div>
+          </div>
+        </div>
+        <div class='col-sm-4'>
+          <label class='col-form-label'>2do. Apellido:</label>
+          <div class='mt-auto mb-auto'>
+            <div class=' form-group'>
+              <input class=' form-control' placeholder='2do. Apellido' name='aMaterno' #aMaterno='ngModel' type='text'
+                [(ngModel)]='contacto.aMaterno' />
+            </div>
+          </div>
+        </div>
+        <div class='col-12'>
+          <label class='col-form-label'>Dirección:</label>
+          <div class='mt-auto mb-auto'>
+            <div class=' form-group'>
+              <input class=' form-control' placeholder='Dirección' name='direccion' #direccion='ngModel' type='text'
+                [(ngModel)]='contacto.direccion' />
+            </div>
+          </div>
+        </div>
+        <div class='col-sm-4'>
+          <label class='col-form-label'>Ciudad:</label>
+          <div class='mt-auto mb-auto'>
+            <div class=' form-group'>
+              <input class=' form-control' placeholder='Ciudad' name='ciudad' #ciudad='ngModel' type='text'
+                [(ngModel)]='contacto.ciudad' />
+            </div>
+          </div>
+        </div>
+        <div class='col-sm-4'>
+          <label class='col-form-label'>Pais:</label>
+          <div class='mt-auto mb-auto'>
+            <div class=' form-group'>
+              <input class=' form-control' placeholder='Pais' name='pais' #pais='ngModel' type='text'
+                [(ngModel)]='contacto.pais' />
+            </div>
+          </div>
+        </div>
+        <div class='col-sm-4'>
+          <label class='col-form-label'>Cod. Postal:</label>
+          <div class='mt-auto mb-auto'>
+            <div class=' form-group'>
+              <input class=' form-control' placeholder='Cod. Postal' name='codPostal' #codPostal='ngModel' type='text'
+                [(ngModel)]='contacto.codPostal' />
+            </div>
+          </div>
+        </div>
+        <div class='col-12'>
+          <label class='col-form-label'>Notas:</label>
+          <div class='mt-auto mb-auto'>
+            <div class=' form-group'>
+              <input class=' form-control' placeholder='Notas' type='text' name='notas' #notas='ngModel'
+                [(ngModel)]='contacto.notas' />
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class='card-footer'>
+    <!-- botones comunmente -->
+    <button class=" btn btn-fill btn-success" (click)="setContactoEvent()">Guardar</button>
+    <!-- Pie de Card -->
+  </div>
+</div>
